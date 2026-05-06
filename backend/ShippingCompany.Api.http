@@ -1,0 +1,27 @@
+@baseUrl = http://localhost:5188
+@token = paste-token-here
+
+### Login as administrator
+POST {{baseUrl}}/api/auth/login
+Content-Type: application/json
+
+{
+  "userName": "admin",
+  "password": "123456"
+}
+
+### Current user
+GET {{baseUrl}}/api/auth/me
+Authorization: Bearer {{token}}
+
+### Dashboard
+GET {{baseUrl}}/api/dashboard/summary
+Authorization: Bearer {{token}}
+
+### Vessels
+GET {{baseUrl}}/api/vessels?page=1&pageSize=10
+Authorization: Bearer {{token}}
+
+### Orders
+GET {{baseUrl}}/api/orders?page=1&pageSize=10
+Authorization: Bearer {{token}}
