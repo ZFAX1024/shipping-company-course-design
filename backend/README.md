@@ -1,48 +1,48 @@
-# Shipping Company Management API
+# 航运公司管理系统后端 API
 
-ASP.NET Core Web API backend for a shipping company management course design.
+这是航运应用软件开发课程设计的 ASP.NET Core Web API 后端项目。
 
-## Stack
+## 技术栈
 
 - ASP.NET Core 8 Web API
-- EF Core 8
+- Entity Framework Core 8
 - SQL Server
-- JWT authentication
-- Swagger/OpenAPI
+- JWT 登录认证
+- Swagger/OpenAPI 接口文档
 
-## Setup
+## 启动方式
 
-1. Install the .NET 8 SDK.
-2. Make sure SQL Server is running.
-3. Update `appsettings.Development.json` if your SQL Server instance is not `localhost`.
-4. Run the API:
+1. 安装 `.NET 8 SDK`。
+2. 确保本机 SQL Server 已经启动。
+3. 如果 SQL Server 实例不是 `localhost`，请修改 `appsettings.Development.json` 中的连接字符串。
+4. 启动 API：
 
 ```powershell
 dotnet restore
 dotnet run
 ```
 
-The API opens Swagger at:
+启动后可以访问 Swagger：
 
 ```text
 https://localhost:7188/swagger
 http://localhost:5188/swagger
 ```
 
-On startup, the app applies the initial EF Core migration and seeds demo data.
+项目启动时会自动执行 EF Core 初始迁移，并写入演示数据。
 
-## Demo Accounts
+## 测试账号
 
-All demo accounts use the password `123456`.
+所有测试账号的密码都是 `123456`。
 
-| Username | Role |
+| 用户名 | 角色 |
 | --- | --- |
-| admin | Admin |
-| dispatcher | Dispatcher |
-| finance | Finance |
-| viewer | Viewer |
+| admin | 管理员 |
+| dispatcher | 调度员 |
+| finance | 财务 |
+| viewer | 查看者 |
 
-## Main API Groups
+## 主要接口分组
 
 - `POST /api/auth/login`
 - `GET /api/auth/me`
@@ -62,6 +62,12 @@ All demo accounts use the password `123456`.
 - `GET /api/system/backups`
 - `POST /api/system/backups`
 
-## Frontend Integration
+## 前端联调
 
-The default CORS policy allows Vue 3 dev server requests from `http://localhost:5173`.
+默认 CORS 策略允许 Vue 3 开发服务从 `http://localhost:5173` 请求后端接口。
+
+前端接口基础地址可以配置为：
+
+```text
+http://localhost:5188
+```
